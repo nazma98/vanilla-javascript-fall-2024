@@ -27,12 +27,16 @@ const getEmployeeRow = (employee) => {
   const tableRow = document.createElement('tr');
   tableRow.className = 'hover:bg-gray-100';
 
-  columns.forEach(column => {
+  const columnInfo = columns.map(column => {
     const employeeInfo = document.createElement('td');
     employeeInfo.className = 'border px-4 py-2';
     employeeInfo.innerText = employee[column];
-    tableRow.appendChild(employeeInfo);
+    return employeeInfo;
   });
+
+  console.log(columnInfo);
+
+  tableRow.append(...columnInfo);
   return tableRow;
 }
 
